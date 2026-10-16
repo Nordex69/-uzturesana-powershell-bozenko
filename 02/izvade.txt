@@ -1,1 +1,12 @@
-
+Name              Id WorkingSet64
+----              -- ------------
+opera          15948    301191168
+opera           5200    308666368
+opera           2120    347373568
+explorer        7560    360669184
+opera          15764    393465856
+MsMpEng         4196    422924288
+steamwebhelper  8572    503447552
+Discord        17804    531091456
+opera           2940    642322432
+opera          18396    646815744
