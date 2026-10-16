@@ -12,4 +12,4 @@ PS C:\Users\bruno> if ($count -gt 0) {
 >> } else {
 >>     Write-Output "No error records found."
 >> }
-
+Most frequent source: DCOM (Count: 92)
