@@ -1,1 +1,16 @@
-
+PS C:\Users\bruno>
+PS C:\Users\bruno> $errors = (Get-EventLog -LogName System -EntryType Error -After (Get-Date).AddHours(-48)).Count
+PS C:\Users\bruno> if ($null -eq $errors) { $errors = 0 }
+PS C:\Users\bruno>
+PS C:\Users\bruno> $diskC = [Math]::Round((Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DeviceID = 'C:'").FreeSpace / 1GB, 2)
+PS C:\Users\bruno>
+PS C:\Users\bruno> Write-Output "Process count: $processes"
+Process count: 222
+PS C:\Users\bruno> Write-Output "Running services: $running"
+Running services: 104
+PS C:\Users\bruno> Write-Output "Stopped services: $stopped"
+Stopped services: 180
+PS C:\Users\bruno> Write-Output "Errors (48h): $errors"
+Errors (48h): 100
+PS C:\Users\bruno> Write-Output "C: Disk free space: $diskC GB"
+C: Disk free space: 83.18 GB
