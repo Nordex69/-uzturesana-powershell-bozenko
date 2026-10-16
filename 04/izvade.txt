@@ -1,1 +1,9 @@
-
+Found services count: 5
+PS C:\Users\bruno>
+PS C:\Users\bruno> if ($count -gt 0) {
+>>     foreach ($s in $services) {
+>>         Start-Service -Name $s.Name -WhatIf
+>>     }
+>> } else {
+>>     Write-Output "No services found with Automatic start mode and Stopped state."
+>> }
