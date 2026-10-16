@@ -1,1 +1,11 @@
-
+PS C:\Users\bruno> Write-Output "Computer Name: $computerName"
+Computer Name: NORDEX
+PS C:\Users\bruno> Write-Output "Operating System: $($os.Caption)"
+Operating System: Microsoft Windows 11 Pro
+PS C:\Users\bruno> Write-Output "Build Number: $($os.BuildNumber)"
+Build Number: 26300
+PS C:\Users\bruno> Write-Output "PowerShell Version: $($PSVersionTable.PSVersion)"
+PowerShell Version: 5.1.26100.9549
+PS C:\Users\bruno> Write-Output "Current Date and Time: $(Get-Date)"
+Current Date and Time: 10/16/2026 15:12:56
+PS C:\Users\bruno> Write-Output "Process Count: $(Get-Process).Count"
