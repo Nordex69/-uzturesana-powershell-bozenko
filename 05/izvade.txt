@@ -1,1 +1,15 @@
+S C:\Users\bruno> $limit = (Get-Date).AddHours(-48)
+PS C:\Users\bruno> $errors = Get-EventLog -LogName System -EntryType Error -After $limit
+PS C:\Users\bruno> $count = ($errors).Count
+PS C:\Users\bruno> if ($null -eq $count) { $count = 0 }
+PS C:\Users\bruno>
+PS C:\Users\bruno> Write-Output "Error count in the last 48 hours: $count"
+Error count in the last 48 hours: 100
+PS C:\Users\bruno>
+PS C:\Users\bruno> if ($count -gt 0) {
+>>     $topSource = $errors | Group-Object -Property Source | Sort-Object -Property Count -Descending | Select-Object -First 1
+>>     Write-Output "Most frequent source: $($topSource.Name) (Count: $($topSource.Count))"
+>> } else {
+>>     Write-Output "No error records found."
+>> }
 
