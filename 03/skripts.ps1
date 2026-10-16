@@ -11,7 +11,7 @@ foreach ($s in $services) {
     }
 }
 
-$summa = $running + $stopped
-Write-Output "Darbojas: $running"
-Write-Output "Apturēti: $stopped"
-Write-Output "Summa: $summa"
+$sum = $running + $stopped
+Write-Output "Running services: $running"
+Write-Output "Stopped services: $stopped"
+Write-Output "Total sum: $sum"
