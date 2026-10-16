@@ -1,14 +1,18 @@
+PS C:\Users\bruno>
+PS C:\Users\bruno> $rows = (Import-Csv -Path "drivers.csv").Count
+PS C:\Users\bruno> Write-Output "CSV file contains $rows rows."
+CSV file contains 108 rows.
 PS C:\Users\bruno> $disks = Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DriveType = 3"
 PS C:\Users\bruno> $threshold = 50.0
-PS C:\Users\bruno> foreach ($disk in $disks) {
-    $letter = $disk.DeviceID
-    $totalGb = [Math]::Round($disk.Size / 1GB, 2)
-    $freeGb = [Math]::Round($disk.FreeSpace / 1GB, 2)
-    
-    Write-Output "Disk $letter | Total size: $totalGb GB | Free space: $freeGb GB"
-    
-    if ($freeGb -lt $threshold) {
-        Write-Warning "Warning! Disk $letter free space ($freeGb GB) is below the threshold ($threshold GB)."
-    }
-}
-Disk C: | Total size: 931.51 GB | Free space: 125.40 GB
+PS C:\Users\bruno>
+PS C:\Users\bruno> foreach ($d in $disks) {
+>>     $letter = $d.DeviceID
+>>     $freeGb = [Math]::Round($d.FreeSpace / 1GB, 2)
+>>
+>>     Write-Output "Disk $letter | Free space: $freeGb GB"
+>>
+>>     if ($freeGb -lt $threshold) {
+>>         Write-Warning "Warning! Disk $letter free space ($freeGb GB) is below the threshold ($threshold GB)."
+>>     }
+>> }
+Disk C: | Free space: 83.21 GB
