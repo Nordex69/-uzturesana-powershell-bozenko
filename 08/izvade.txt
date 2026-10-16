@@ -1,1 +1,12 @@
 
+PS C:\Users\bruno> $time1 = Measure-Command -Expression { Get-Service -Name "Spooler" }
+PS C:\Users\bruno> $time2 = Measure-Command -Expression { Get-CimInstance -ClassName Win32_Service -Filter "Name = 'Spooler'" }
+PS C:\Users\bruno>
+PS C:\Users\bruno> Write-Output "Method 1 (Get-Service): $($time1.TotalMilliseconds) ms"
+Method 1 (Get-Service): 41.013 ms
+PS C:\Users\bruno> Write-Output "Method 2 (Get-CimInstance): $($time2.TotalMilliseconds) ms"
+
+
+
+
+
