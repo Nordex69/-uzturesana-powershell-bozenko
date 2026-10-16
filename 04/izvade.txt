@@ -1,3 +1,5 @@
+PS C:\Users\bruno>
+PS C:\Users\bruno> Write-Output "Found services count: $count"
 Found services count: 5
 PS C:\Users\bruno>
 PS C:\Users\bruno> if ($count -gt 0) {
@@ -7,3 +9,8 @@ PS C:\Users\bruno> if ($count -gt 0) {
 >> } else {
 >>     Write-Output "No services found with Automatic start mode and Stopped state."
 >> }
+What if: Performing the operation "Start-Service" on target "AppX Deployment Service (AppXSVC) (AppXSvc)".
+What if: Performing the operation "Start-Service" on target "Microsoft Edge Update Service (edgeupdate) (edgeupdate)".
+What if: Performing the operation "Start-Service" on target "Downloaded Maps Manager (MapsBroker)".
+What if: Performing the operation "Start-Service" on target "Software Protection (sppsvc)".
+What if: Performing the operation "Start-Service" on target "Windows Modules Installer (TrustedInstaller)".
