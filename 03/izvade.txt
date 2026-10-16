@@ -1,1 +1,5 @@
-
+ C:\Users\bruno> $sum = $running + $stopped
+PS C:\Users\bruno> Write-Output "Running services: $running"
+Running services: 105
+PS C:\Users\bruno> Write-Output "Stopped services: $stopped"
+Stopped services: 179
