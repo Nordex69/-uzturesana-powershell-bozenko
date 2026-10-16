@@ -1,10 +1,13 @@
-$laiks = (Get-Date).AddHours(-48)
-$kludas = Get-EventLog -LogName System -EntryType Error -After $laiks
-$skaits = $kludas.Count
+$limit = (Get-Date).AddHours(-48)
+$errors = Get-EventLog -LogName System -EntryType Error -After $limit
+$count = ($errors).Count
+if ($null -eq $count) { $count = 0 }
 
-Write-Output "Kļūdu skaits: $skaits"
+Write-Output "Error count in the last 48 hours: $count"
 
-if ($skaits -gt 0) {
-    $biezakais = $kludas | Group-Object -Property Source | Sort-Object -Property Count -Descending | Select-Object -First 1
-    Write-Output "Visbiežākais avots: $($biezakais.Name) (reizes: $($biezakais.Count))"
+if ($count -gt 0) {
+    $topSource = $errors | Group-Object -Property Source | Sort-Object -Property Count -Descending | Select-Object -First 1
+    Write-Output "Most frequent source: $($topSource.Name) (Count: $($topSource.Count))"
+} else {
+    Write-Output "No error records found."
 }
